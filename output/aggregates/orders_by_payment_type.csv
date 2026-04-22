@@ -1,7 +1,7 @@
 payment_type,order_count
-credit_card,40291
-boleto,10335
-voucher,2014
-debit_card,820
+credit_card,76505
+boleto,19784
+voucher,3866
+debit_card,1528
 not_defined,3
 unknown,1

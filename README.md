@@ -105,3 +105,23 @@ Consume messages:
 - If CSV file is not found: ensure files exist in `Bigdata/data/`.
 - If broker connection fails: make sure Docker container `broker` is running.
 - If no messages are consumed: verify topic name used by producer and consumer is the same.
+
+## BI Dashboard (Streamlit)
+
+After you generate aggregate files in `output/aggregates/`, run:
+
+```bash
+cd bi
+uv run python -m streamlit run app.py
+```
+
+The BI app includes 6 dashboards:
+
+1. Executive Overview
+2. Sales by Geography
+3. Product Performance
+4. Payment Behavior
+5. Fulfillment / Delivery
+6. Customer Satisfaction
+
+The sidebar includes a `Refresh Aggregates` button that re-runs `analysis/mapreduce_analysis.py`.
