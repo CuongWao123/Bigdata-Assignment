@@ -36,29 +36,6 @@ def _build_filters(tables: dict[str, pd.DataFrame]) -> dict:
     if date_start > date_end:
         date_start, date_end = date_end, date_start
 
-    states = ["All"]
-    orders_by_state = tables.get("orders_by_state", pd.DataFrame())
-    if not orders_by_state.empty and "customer_state" in orders_by_state.columns:
-        unique_states = sorted(orders_by_state["customer_state"].dropna().astype(str).unique().tolist())
-        states.extend(unique_states)
-
-    categories = ["All"]
-    revenue_by_category = tables.get("revenue_by_category", pd.DataFrame())
-    if not revenue_by_category.empty and "product_category_name" in revenue_by_category.columns:
-        unique_categories = sorted(
-            revenue_by_category["product_category_name"].dropna().astype(str).unique().tolist()
-        )
-        categories.extend(unique_categories)
-
-    payment_types = ["All"]
-    orders_by_payment = tables.get("orders_by_payment_type", pd.DataFrame())
-    if not orders_by_payment.empty and "payment_type" in orders_by_payment.columns:
-        unique_payment_types = sorted(
-            orders_by_payment["payment_type"].dropna().astype(str).unique().tolist()
-        )
-        payment_types.extend(unique_payment_types)
-
-    st.sidebar.markdown("### Global Filters")
     st.sidebar.info(
         f"**Date:** {date_start.date()} to {date_end.date()}\n\n"
     )
@@ -66,9 +43,9 @@ def _build_filters(tables: dict[str, pd.DataFrame]) -> dict:
     return {
         "date_start": date_start,
         "date_end": date_end,
-        "state": st.sidebar.selectbox("State", states),
-        "category": st.sidebar.selectbox("Category", categories),
-        "payment_type": st.sidebar.selectbox("Payment Type", payment_types),
+        "state": "All",
+        "category": "All",
+        "payment_type": "All",
     }
 
 
