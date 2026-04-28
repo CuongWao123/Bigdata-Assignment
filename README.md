@@ -1,4 +1,12 @@
 # Bigdata Kafka Producer
+**STUDENTS:**
+| Student Name          | Student ID |
+| --------------------- | ------- |
+| Tạ Trung Tín          | 2213506 |
+| Trần Đại Việt         | 2213951 |
+| Nguyễn Văn Mạnh Cường | 2210437 |
+| Nguyễn Văn Nhật Huy   | 2211254 |
+| Trần Hồng Phúc        | 2212651 |
 
 This project joins multiple Olist CSV datasets and publishes enriched order records to an Apache Kafka topic.
 
